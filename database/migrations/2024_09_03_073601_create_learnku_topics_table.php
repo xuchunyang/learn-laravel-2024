@@ -14,6 +14,9 @@ return new class extends Migration
         Schema::create('learnku_topics', function (Blueprint $table) {
             $table->id();
             // Add url, title, body
+            $table->string('url')->unique();
+            $table->string('title');
+            $table->text('body');
             $table->timestamps();
         });
     }

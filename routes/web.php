@@ -1,10 +1,13 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Models\LearnkuTopic;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('learnku', [
+        'topics' => LearnkuTopic::latest()->get(),
+    ]);
 });
 
 Route::get('/dashboard', function () {
