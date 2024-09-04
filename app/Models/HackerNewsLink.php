@@ -10,6 +10,19 @@ class HackerNewsLink extends Model
     use Sushi;
 
     protected array $rows = [
+        // 测试下中文，加 3 个中文标题的，随机中文标题，长度不一
+        [
+            'url' => 'https://paperless.blog/interactive-nixos-tests',
+            'title' => '交互式 NixOS 测试',
+        ],
+        [
+            'url' => 'https://ninjalab.io/eucleak/',
+            'title' => 'EUCLEAK 侧信道攻击 YubiKey 5 系列',
+        ],
+        [
+            'url' => 'https://it-notes.dragas.net/2024/09/03/make-your-own-cdn-netbsd/',
+            'title' => '使用 NetBSD 制作自己的 CDN',
+        ],
         [
             'url' => 'https://paperless.blog/interactive-nixos-tests',
             'title' => 'Interactive NixOS Tests',
