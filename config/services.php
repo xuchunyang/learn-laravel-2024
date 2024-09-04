@@ -35,4 +35,7 @@ return [
         ],
     ],
 
+    'check' => [
+        'urls' => explode(',', env('CHECK_URLS', 'https://example.com/')),
+    ]
 ];
