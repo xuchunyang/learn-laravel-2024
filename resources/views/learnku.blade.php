@@ -15,7 +15,7 @@
     <h1 class="text-2xl font-bold text-center">Learnku 话题备份</h1>
 
     <ul class="space-y-4 divide-y">
-        @foreach ($topics as $topic)
+        @forelse($topics as $topic)
             <li class="pt-4">
                 <details>
                     <summary class="">
@@ -27,7 +27,9 @@
                     </div>
                 </details>
             </li>
-        @endforeach
+        @empty
+            <li class="pt-4 text-center">暂无数据</li>
+        @endforelse
     </ul>
 </div>
 
