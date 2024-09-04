@@ -28,6 +28,9 @@ jobs:
       run: |
         mkdir -p database
         touch database/database.sqlite
+    - uses: actions/setup-node@v4.0.3
+    - name: Build frontend via Vite
+      run: npm ci && npm run build
     - name: Execute tests (Unit and Feature tests) via PHPUnit/Pest
       env:
         DB_CONNECTION: sqlite
