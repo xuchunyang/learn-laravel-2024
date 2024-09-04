@@ -20,7 +20,7 @@ class Hello extends Prompt
     {
         static::$themes['default'][Hello::class] = HelloRenderer::class;
 
-        $this->hackerNewsLinks = HackerNewsLink::all();
+        $this->hackerNewsLinks = HackerNewsLink::limit(5)->get();
 
         $this->listenForKeys();
     }

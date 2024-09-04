@@ -2,6 +2,7 @@
 
 namespace App\Terminal;
 
+use App\Models\HackerNewsLink;
 use Laravel\Prompts\Themes\Default\Concerns\DrawsBoxes;
 use Laravel\Prompts\Themes\Default\Renderer;
 
@@ -22,10 +23,12 @@ class HelloRenderer extends Renderer
         // $this->output = $this->getBoxOutput('Title', $this->getBoxOutput('Nested Title', $body, 'green', 40), 'blue', 60);
 
         $activeItem = $hello->activeItem;
-        $this->output = $this->getBoxOutput('Hacker News Links', $hello->hackerNewsLinks->map(function ($link) use ($activeItem) {
-            ray([$link->id, $activeItem]);
+        $this->output = $this->getBoxOutput('Hacker News Links', $hello->hackerNewsLinks->map(function (HackerNewsLink $link) use ($activeItem) {
             // FIXME 没有更新，了解下为啥
-            return $this->getBoxOutput($link->title, $link->url, $activeItem == $link->id ? 'green' : 'dim', 40);
+            $color = $activeItem == $link->id ? 'green' : 'dim';
+            // ray([$link->id, $activeItem, $color]);
+
+            return $this->getBoxOutput($link->title.' '.$activeItem, $link->url, $color, 40);
         })->join(''), 'dim', 60);
 
         return $this;
