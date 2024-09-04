@@ -2,11 +2,18 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Models\LearnkuTopic;
+use App\Models\LolChampion;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('learnku', [
         'topics' => LearnkuTopic::latest()->get(),
+    ]);
+});
+
+Route::get('/lol', function () {
+    return view('lol', [
+        'champions' => LolChampion::all(),
     ]);
 });
 
