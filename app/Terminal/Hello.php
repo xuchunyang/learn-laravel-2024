@@ -3,12 +3,15 @@
 namespace App\Terminal;
 
 use App\Models\HackerNewsLink;
+use Chewie\Concerns\CreatesAnAltScreen;
 use Illuminate\Database\Eloquent\Collection;
 use Laravel\Prompts\Key;
 use Laravel\Prompts\Prompt;
 
 class Hello extends Prompt
 {
+    use CreatesAnAltScreen;
+
     public Collection $hackerNewsLinks;
 
     public int $activeItem = 1;
@@ -19,6 +22,9 @@ class Hello extends Prompt
     public function __construct()
     {
         static::$themes['default'][Hello::class] = HelloRenderer::class;
+
+        // https://www.youtube.com/watch?v=aJu48qlJANM&t=40s
+        $this->createAltScreen();
 
         $this->hackerNewsLinks = HackerNewsLink::limit(5)->get();
 
