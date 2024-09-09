@@ -12,7 +12,7 @@
 <body class="font-sans antialiased">
 
 <div class="container mx-auto px-4 py-4">
-    <h1 class="text-2xl font-bold text-center">Lol Champions</h1>
+    <h1 class="text-2xl font-bold text-center">Lol Champions ({{ $champions->count() }})</h1>
 
     <ul class="flex flex-wrap gap-4 my-4 justify-evenly">
         @forelse($champions as $champion)
