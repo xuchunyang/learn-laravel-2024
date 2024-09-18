@@ -25,3 +25,48 @@
 
  30/30 [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓] 100%
 ```
+
+
+### 分页定制
+默认分页是用 Tailwind 的，如果我们不用 Tailwind，可以用默认的 `pagination::default` 模版，这个比较简单，方便定制样式。
+
+```
+{{ $champions->links('pagination::default') }}
+```
+
+```css
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+}
+
+.pagination li {
+    margin: 0 5px;
+}
+
+.pagination li > * {
+    display: block;
+    line-height: 1.5;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    text-decoration: none;
+    color: #333;
+}
+
+.pagination li.active > * {
+    background-color: #333;
+    color: #fff;
+}
+
+.pagination a:hover {
+    background-color: #f4f4f4;
+}
+
+.pagination .disabled {
+    color: #ccc;
+    pointer-events: none;
+}
+```

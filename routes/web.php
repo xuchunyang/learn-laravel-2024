@@ -16,7 +16,8 @@ Route::get('/learnku', function () {
 
 Route::get('/lol', function () {
     return view('lol', [
-        'champions' => LolChampion::all(),
+        'champions' => LolChampion::paginate(10),
+        'champions2' => LolChampion::simplePaginate(10),
     ]);
 });
 

@@ -12,20 +12,29 @@
 <body class="font-sans antialiased">
 
 <div class="container mx-auto px-4 py-4">
-    <h1 class="text-2xl font-bold text-center">Lol Champions ({{ $champions->count() }})</h1>
+    @if($champions->isNotEmpty())
+        <ul class="space-y-4 my-4">
+            @foreach($champions as $champion)
+                <li class="border px-4 py-2 rounded shadow">
+                    <div class="flex items-center mb-1">
+                        <h1 class="font-bold text-lg">{{ $champion->name }}</h1>
+                        <h2 class="ml-2 text-gray-500 text-sm mr-auto">{{ $champion->title }}</h2>
+                        <div class="text-sm uppercase text-gray-500">{{ $champion->uid }}</div>
+                    </div>
+                    <p class="text-sm text-gray-500 line-clamp-1">{{ $champion->blurb }}</p>
+                </li>
+            @endforeach
+        </ul>
 
-    <ul class="flex flex-wrap gap-4 my-4 justify-evenly">
-        @forelse($champions as $champion)
-            <li class="border p-4">
-                <div>ID: {{ $champion->uid }}</div>
-                <div>Name: {{ $champion->name }}</div>
-                <div>Title: {{ $champion->title }}</div>
-                <div class="max-w-[300px]">Blurb: {{ $champion->blurb }}</div>
-            </li>
-        @empty
-            <li class="pt-4 text-center">暂无数据</li>
-        @endforelse
-    </ul>
+        <div class="space-y-4 my-4">
+            {{ $champions->links() }}
+            {{ $champions2->links() }}
+            {{ $champions2->links('my-simple-pagination') }}
+            {{ $champions->links('pagination::default') }}
+        </div>
+    @else
+        <div class="pt-4 text-center">暂无数据</div>
+    @endif
 </div>
 
 </body>
