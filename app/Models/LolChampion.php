@@ -12,6 +12,8 @@ class LolChampion extends Model
         'name',
         'title',
         'blurb',
+        'type',
+        'created_at',
     ];
 
     public function user(): BelongsTo

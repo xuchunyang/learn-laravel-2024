@@ -28,18 +28,19 @@ class LolChampionResource extends Resource
                 Forms\Components\Textarea::make('blurb'),
                 Forms\Components\Select::make('type')
                     ->options([
-                        'cat' => 'Cat',
-                        'dog' => 'Dog',
-                        'rabbit' => 'Rabbit',
+                        'tank' => 'Tank',
+                        'fighter' => 'Fighter',
+                        'mage' => 'Mage',
+                        'assassin' => 'Assassin',
+                        'marksman' => 'Marksman',
+                        'support' => 'Support',
                     ]),
                 Forms\Components\DatePicker::make('published_at')
-                    ->required()
                     ->maxDate(now()),
                 Forms\Components\Select::make('user_id')
                     ->relationship('user', 'name')
                     ->searchable()
-                    ->preload()
-                    ->required(),
+                    ->preload(),
             ]);
     }
 
@@ -47,12 +48,24 @@ class LolChampionResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('uid'),
+                Tables\Columns\TextColumn::make('uid')
+                    ->searchable()
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('name'),
                 Tables\Columns\TextColumn::make('title'),
+                Tables\Columns\TextColumn::make('type'),
             ])
             ->filters([
-                //
+                // Filter by type
+                Tables\Filters\SelectFilter::make('type')
+                    ->options([
+                        'tank' => 'Tank',
+                        'fighter' => 'Fighter',
+                        'mage' => 'Mage',
+                        'assassin' => 'Assassin',
+                        'marksman' => 'Marksman',
+                        'support' => 'Support',
+                    ]),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

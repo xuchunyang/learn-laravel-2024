@@ -8,6 +8,7 @@
         "php": "^8.2",
         "calebporzio/sushi": "^2.5",
         "filament/filament": "^3.2",
+        "flowframe/laravel-trend": "^0.2.0",
         "joetannenbaum/chewie": "^0.1.2",
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",
