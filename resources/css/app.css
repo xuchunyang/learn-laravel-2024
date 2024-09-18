@@ -8,31 +8,47 @@
     align-items: center;
     list-style: none;
     padding: 0;
+    margin: 20px 0;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-size: 1.2em;
 }
 
 .pagination li {
-    margin: 0 5px;
+    margin: 0 10px;
+    transition: transform 0.3s ease;
+}
+
+.pagination li:hover {
+    transform: scale(1.2);
 }
 
 .pagination li > * {
     display: block;
-    line-height: 1.5;
-    padding: 5px 10px;
-    border: 1px solid #ccc;
+    line-height: 2;
+    padding: 10px 20px;
+    border: 2px solid #20c997;
+    border-radius: 50%;
     text-decoration: none;
-    color: #333;
+    color: #fff;
+    background-color: #20c997;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .pagination li.active > * {
-    background-color: #333;
+    background-color: #fd7e14;
     color: #fff;
+    border-color: #fd7e14;
 }
 
 .pagination a:hover {
-    background-color: #f4f4f4;
+    background-color: #17a2b8;
+    color: #fff;
 }
 
 .pagination .disabled {
     color: #ccc;
     pointer-events: none;
+    background-color: #f4f4f4;
+    border-color: #ccc;
 }
