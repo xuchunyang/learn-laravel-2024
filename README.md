@@ -70,3 +70,11 @@
     pointer-events: none;
 }
 ```
+
+
+### 调查 Filament 技术栈
+
+- 用 PHP 定义前端表单字段，类似 Nova，这是一个特色，不用写前端代码
+- 有 Resource 的概念，来处理 CRUD 操作，同样类似 Nova
+- 前端资源是打包好的，直接存在代码中了，保存到了 Git，这也和 Nova 一样，我不喜欢这种做法
+- 使用了不少第三方 JS 包
