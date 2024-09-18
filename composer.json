@@ -11,6 +11,7 @@
         "flowframe/laravel-trend": "^0.2.0",
         "joetannenbaum/chewie": "^0.1.2",
         "laravel/framework": "^11.9",
+        "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
         "symfony/dom-crawler": "^7.1"
     },
