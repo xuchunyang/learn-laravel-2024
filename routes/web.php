@@ -1,11 +1,14 @@
 <?php
 
+use App\Http\Controllers\DeferController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Models\LearnkuTopic;
 use App\Models\LolChampion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
+Route::get('/defer', DeferController::class);
 
 Route::get('/session', function (Request $request) {
     return [
