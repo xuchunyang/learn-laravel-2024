@@ -4,7 +4,15 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Models\LearnkuTopic;
 use App\Models\LolChampion;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
+Route::get('/session', function (Request $request) {
+    return [
+        'id' => $request->session()->getId(),
+        'all' => $request->session()->all(),
+    ];
+});
 
 Route::get('/', HomeController::class);
 
